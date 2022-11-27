@@ -3,4 +3,4 @@ function C = constraints(sys,q,t)
      constraints_revolute(sys,q)
      constraints_simple(sys,q)
      constraints_simple_driving(sys,q,t);
-     ]
+     ];
