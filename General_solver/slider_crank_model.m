@@ -21,6 +21,8 @@ sys = add_joint_simple(sys, "ground", "x");
 sys = add_joint_simple(sys, "ground", "y");
 sys = add_joint_simple(sys, "ground", "fi");
 
+%sys = add_joint_translational(sys, "body_i", "body_j", [0; 0], [0;0])
+
 sys = add_joint_simple_driving(sys, "crank", "fi",...
     @(t) -deg2rad(30)-1.2*t,...
     @(t) -1.2);
@@ -28,8 +30,8 @@ sys = add_joint_simple_driving(sys, "crank", "fi",...
 sys = set_solver_settings(sys, 10, 0.1);
 
 %% SOLVER fsolve
-% q0 = initial_coordinates(sys)
-% q = fsolve(@(q) constraints(sys,q,0),q0)
+q0 = initial_coordinates(sys)
+q = fsolve(@(q) constraints(sys,q,0),q0)
 [Tf, Qf] = solve_kinematics_fsolve(sys);
 % C = constraints(sys, Q, 0);
 % fprintf('Constraints norm after fsolve %g\n', norm(C))
