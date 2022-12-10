@@ -1,5 +1,5 @@
 function C = constraints_revolute(sys,q)
-C = zeros(2*length(sys.joints.revolute),1);
+C = zeros(2*length(sys.joints.translational),1);
 c_id = 0;
 
 for j = sys.joints.revolute
