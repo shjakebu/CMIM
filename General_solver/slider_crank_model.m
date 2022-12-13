@@ -32,11 +32,11 @@ sys = set_solver_settings(sys, 10, 0.1);
 %% SOLVER fsolve
 % q0 = initial_coordinates(sys)
 % q = fsolve(@(q) constraints(sys,q,0),q0)
-[Tf, Qf] = solve_kinematics_fsolve(sys);
+%[Tf, Qf] = solve_kinematics_fsolve(sys);
 % C = constraints(sys, Q, 0);
 % fprintf('Constraints norm after fsolve %g\n', norm(C))
 %% SOLVER NR
-%[T, Q, Qd] = solve_kinematics_NR(sys);
+[T, Q, Qd] = solve_kinematics_NR(sys);
 %Qd
 %% POSTPROCESSING
 pidx = 4;
