@@ -4,4 +4,4 @@ function Cq = constraints_dq(sys,q)
      constraints_dq_simple(sys,q)
      constraints_dq_translational(sys,q)
      constraints_dq_simple_driving(sys,q)
-     ];
+     ]

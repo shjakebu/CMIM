@@ -1,5 +1,5 @@
 %%PREPROCESSOR
-
+clc;
 % Bodies
 %Describe: location, orientation, name
 sys = make_system();
@@ -40,4 +40,4 @@ sys = set_solver_settings(sys, 10, 0.1);
 %Qd
 %% POSTPROCESSING
 pidx = 4;
-plot(Tf, Qf(pidx,:))
+plot(T, Q(pidx,:))

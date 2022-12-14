@@ -14,14 +14,12 @@ for j = sys.joints.translational
     ni_ = flip(qi(1:2));
     ni_(1) = -ni_(1);
     ni = Ai*ni_;
-    RA11 = transpose(qj(1:2)-ni)*transpose(Aj)*I;
-    RA12 = transpose(qj(1:2)-ni)*transpose(Aj)*(O*Ai*j.s_i);
-    RB11 = transpose(qj(1:2)-ni)*transpose(Aj)*I;
-    RB12 = transpose(qj(1:2)-ni)*I*qi(1:2);
-    Cq(c_id+(1:2), j.body_i_qidx) = [RA11 RA12;
-        0 1];
-    Cq(c_id+(1:2), j.body_j_qidx) = [RA11 RA12;
-        0 1];
+    RA = [transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*transpose(Aj)*(O*Ai*j.s_i)]
+    RB = -[transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*I*qi(1:2)]
+    Cq(c_id+(1:2), j.body_i_qidx) = [RA;
+        0 0 1];
+    Cq(c_id+(1:2), j.body_j_qidx) = [RB;
+        0 0 -1];
     c_id = c_id +2;
 end
 
