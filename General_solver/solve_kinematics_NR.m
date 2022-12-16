@@ -26,7 +26,9 @@ for ii = 1:length(T)
     Q(:, ii) = q;
     % velocity level analysis
     qd = -constraints_dq(sys,q)\constraints_dt(sys,t);
+    qdd = -constraints_dq(sys,q)\constraints_g(sys,q,qd);
     Qd(:, ii) = qd;
+    %Qdd(:, ii) = qdd;
 end
 end
 
