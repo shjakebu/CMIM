@@ -1,4 +1,4 @@
-function [T,Q, Qd] = solve_kinematics_NR(sys)
+function [T,Q, Qd, Qdd] = solve_kinematics_NR(sys)
 %Solve the multibody system sys on kinematics using Newton-Raphson method
 %solve the system based on the system definition and solver settings
 %provided in sys
@@ -13,6 +13,7 @@ n_steps = ceil(sys.solver.t_final / sys.solver.t_step) + 1;
 T = linspace(0,sys.solver.t_final, n_steps);
 Q = zeros(length(q), length(T));
 Qd = zeros(length(q), length(T));
+Qdd = zeros(length(q), length(T));
 for ii = 1:length(T)
     t = T(ii);
     [q, iteration_counter] = NewtonRaphson_method(...
@@ -26,9 +27,10 @@ for ii = 1:length(T)
     Q(:, ii) = q;
     % velocity level analysis
     qd = -constraints_dq(sys,q)\constraints_dt(sys,t);
-    qdd = -constraints_dq(sys,q)\constraints_g(sys,q,qd);
+    qdd = constraints_dq(sys,q)\constraints_g(sys,q,qd);
     Qd(:, ii) = qd;
-    %Qdd(:, ii) = qdd;
+    Qdd(:, ii) = qdd;
+
 end
 end
 

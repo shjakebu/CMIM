@@ -14,8 +14,8 @@ for j = sys.joints.translational
     ni_ = flip(qi(1:2));
     ni_(1) = -ni_(1);
     ni = Ai*ni_;
-    RA = [transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*transpose(Aj)*(O*Ai*j.s_i)]
-    RB = -[transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*I*qi(1:2)]
+    RA = [transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*transpose(Aj)*(O*Ai*j.s_i)];
+    RB = -[transpose(qj(1:2)-ni)*transpose(Aj)*I,transpose(qj(1:2)-ni)*I*qi(1:2)];
     Cq(c_id+(1:2), j.body_i_qidx) = [RA;
         0 0 1];
     Cq(c_id+(1:2), j.body_j_qidx) = [RB;

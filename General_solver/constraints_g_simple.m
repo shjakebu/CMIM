@@ -1,9 +1,10 @@
 function Cg = constraints_g_simple(sys,q)
-Cg = zeros(length(sys.joints.simple),length(q));
+Cg = zeros(length(sys.joints.simple),1);
 c_id = 0;
 
 for j = sys.joints.simple
-    Cg(c_id+1, j.body_qidx(j.coord_id)) = 0;
+    qi = q(j.body_qidx);
+    C(c_id+1) = 0;
     c_id = c_id + 1;
 end
     

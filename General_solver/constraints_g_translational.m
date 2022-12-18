@@ -1,6 +1,6 @@
 function Cg = constraints_g_translational(sys,q, qd)
 %Compute constraints for revolute joints
-Cg = zeros(2*length(sys.joints.translational),length(qd));
+Cg = zeros(2*length(sys.joints.translational),1);
 
 O = omega();
 I = eye(2);
@@ -9,8 +9,8 @@ c_id = 0;
 for j = sys.joints.translational
     qi = q(j.body_i_qidx);
     qj = q(j.body_j_qidx);
-    qid = q(j.body_i_qidx);
-    qjd = q(j.body_j_qidx);
+    qid = qd(j.body_i_qidx);
+    qjd = qd(j.body_j_qidx);
     Ai = rot(qi(3));
     Aj = rot(qj(3));
     ni_ = flip(qi(1:2));

@@ -1,5 +1,5 @@
 function sys = add_joint_translational(sys, body_i,...
-    body_j, s_i, s_j);
+    body_j, s_i, s_j)
 
     arguments
         sys (1,1) struct

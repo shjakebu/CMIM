@@ -1,5 +1,5 @@
 function sys = add_joint_revolute(sys, body_i,...
-    body_j, s_i, s_j);
+    body_j, s_i, s_j)
 %Add revolute joint definition to the system
     arguments
         sys (1,1) struct

@@ -1,6 +1,6 @@
 function Cg = constraints_g_revolute(sys,q, qd)
 %Compute constraints for revolute joints
-Cg = zeros(2*length(sys.joints.revolute),length(q));
+Cg = zeros(2*length(sys.joints.revolute),1);
 c_id = 0;
 
 

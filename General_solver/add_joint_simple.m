@@ -1,4 +1,4 @@
-function sys = add_joint_simple(sys, body_name, coord_name, value);
+function sys = add_joint_simple(sys, body_name, coord_name, value)
     arguments
         sys (1,1) struct
         body_name (1,1) string
