@@ -19,7 +19,7 @@ for j = sys.joints.translational
     Cq(c_id+(1:2), j.body_i_qidx) = [RA;
         0 0 1];
     Cq(c_id+(1:2), j.body_j_qidx) = [RB;
-        0 0 -1];
+        0 0 1];
     c_id = c_id +2;
 end
 
